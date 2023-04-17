@@ -1,0 +1,342 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/* -- Khusus Navbar -- */
+
+nav {
+    display: flex;
+    background-color: #003f86;
+    justify-content: space-around;
+    /* padding: 20px 0; --> bisa pake ini ataupun height */
+    height: 50px;
+    align-items: center;
+    color: #b4d2ff;
+    /* position: sticky; */
+}
+
+nav .logo {
+    font-family: 'Pacifico', cursive;
+    letter-spacing: 3px;
+}
+
+nav ul {
+    /* background-color: rgb(32, 32, 32); */
+    display: flex;
+    list-style: none;
+    width: 40%;
+    justify-content: space-between;
+}
+
+nav ul li a {
+    color: rgb(180, 210, 255);
+    text-decoration: none;
+    font-size: 0.8em;
+}
+
+nav ul li a:hover {
+    color: rgb(255, 255, 255);
+
+}
+
+/* hamburger menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    /* buat biar bisa ngatur posisi checkboxnya */
+    position: relative;
+}
+
+.menu-toggle input {
+    position: absolute;
+    width: 40px;
+    height: 28px;
+    left: -6px;
+    top: -3px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: rgb(180, 210, 255);
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+
+/* hamburger menu animation */
+.menu-toggle span:nth-child(2) {    
+    transform-origin: 0 0;   
+}
+
+.menu-toggle span:nth-child(4) {    
+    transform-origin: 0 100%;   
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+    background-color: white;
+    transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(4) {
+    background-color: white;
+    transform: rotate(-45deg) translate(-1px, 0);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3) {
+    opacity: 0;
+    transform: scale(0);
+}
+
+
+/* navbar responsive breakpoints */
+/* TABLET */
+@media screen and (max-width: 768px) {
+    nav ul {
+        width: 50%;
+    }
+}
+
+/* MOBILE */
+@media screen and (max-width: 576px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav ul {
+        /* display: none; */
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 80%;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        z-index: 0;
+        background-color: rgb(49, 119, 224);
+        transform: translateX(100%);
+        transition: all 0.5s;
+        opacity: 0;
+    }
+    
+    nav ul.slide {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+}
+
+/* -- akhir Navbar --*/
+
+
+/* jumbotron */
+
+.jumbotron {
+    background-image: url("img/banner2.jpg");
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.jumbotron p {
+    font-size: 45px;
+    text-align: center;
+    color: white;
+    margin: 0 25px;
+    max-width: 80%;
+    /* background-color: antiquewhite; */
+}
+
+/* content */
+.header {
+    text-align: center;
+    margin: 50px 0 20px;
+	padding-top: 30px;
+}
+
+.header h2 {
+    font-weight: 200;
+}
+
+.isi {
+    margin: 0 30px;
+	padding-bottom: 30px;
+}
+
+#tentang p {
+    line-height: 1.9em;
+    word-spacing: 0.1em;
+    letter-spacing: 0.05em;
+}
+
+.subheader {
+    margin: 20px 0 10px;
+}
+
+.subheader h3 {
+    font-weight: 100;
+}
+
+#produk {
+	background-color: #f5f5f5;
+	
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    /* background-color: gray; */
+}
+
+.box {
+    /* flex-shrink: 1; */
+    flex: 25%;
+    /* max-width: 25%; */
+    margin: 5px;
+}
+
+
+/* testi */
+#testimoni .row {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin: 0 auto;
+}
+
+#testimoni .testi-item {
+	box-shadow: 0 5px 5px 2px #c2c2c2;
+	width: 250px;
+	border-radius: 5px;
+	padding: 15px;
+	margin: 0 20px 20px 0;
+	display: flex;
+	flex-direction: column;
+	/* justify-content: center; */
+	align-items: center;
+}
+
+#testimoni p, #testimoni figcaption {
+	text-align: center;
+}
+
+#testimoni figcaption p {
+	font-size: 0.8em;
+}
+
+#testimoni img {
+	display: block;
+	width: 70px;
+	height: auto;
+	margin: 10px auto;
+}
+
+/* author */
+aside {
+    margin-top: 70px;
+    padding-top: 50px;
+    border-top: 0.5px solid #c2c2c2;
+}
+aside .row {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.author {
+	width: 400px;
+    display: flex;
+}
+
+.author img {
+    width: auto;
+    height: 90px;
+	margin-right: 20px;
+}
+
+.author .tentang, .author p {
+    font-size: 0.9em;
+}
+
+.author ul{
+    list-style: none;
+}
+
+/* footer */
+footer {
+	margin-top: 30px;
+	background-color: #003f86;
+	padding: 40px 0;
+	color: #b4d2ff;
+}
+
+footer p {
+	text-align: center;
+}
+
+footer .row {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	padding-top: 30px;
+}
+
+footer ul {
+	list-style: none;
+}
+
+footer li {
+	line-height: 1.5em;
+}
+
+
+
+/* For mobile phones: */
+[class*="col-"] {
+    width: 100%;
+}
+
+
+/* -------------- LAYAR TABLET & DEKSTOP ----------- */
+@media only screen and (min-width: 600px) {
+    /* For tablet: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+
+    .item {
+        flex-direction: row;
+    }
+
+    .isi {
+        margin: 0 80px;
+    }
+
+	footer .row {
+		justify-content: space-around;
+	}
+}
